@@ -1,0 +1,35 @@
+package com.company.Courseart;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+
+class Winter extends JFrame
+{
+    Winter()
+    {
+        this.setSize(715, 535);
+        this.setLocationRelativeTo(null);
+        this.setTitle("Зима");
+        this.setContentPane(new set());
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setVisible(true);
+    }
+}
+class set extends JPanel {
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        Image seasons = null;
+        try {
+            seasons = ImageIO.read(getClass().getResource("winter.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        g2.drawImage(seasons, 0, 0, this);
+    }
+
+
+}
