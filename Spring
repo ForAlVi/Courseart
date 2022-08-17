@@ -1,0 +1,36 @@
+package com.company.Courseart;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+
+class Spring extends JFrame
+{
+    Spring()
+    {
+        this.setSize(715, 535);
+        this.setLocationRelativeTo(null);
+        this.setTitle("Весна");
+        this.setContentPane(new Pane());
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setVisible(true);
+    }
+}
+class Pane extends JPanel {
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        Image seasons = null;
+        try {
+            seasons = ImageIO.read(getClass().getResource("spring.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        g2.drawImage(seasons, 0, 0, this);
+    }
+
+
+}
+
