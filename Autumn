@@ -1,0 +1,35 @@
+package com.company.Courseart;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+
+class Autumn extends JFrame
+{
+    Autumn()
+    {
+        this.setSize(715, 535);
+        this.setLocationRelativeTo(null);
+        this.setTitle("Осень");
+        this.setContentPane(new Content());
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.setVisible(true);
+    }
+}
+class Content extends JPanel {
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        Image seasons = null;
+        try {
+            seasons = ImageIO.read(getClass().getResource("autumn.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        g2.drawImage(seasons, 0, 0, this);
+    }
+
+
+}
