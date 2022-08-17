@@ -1,0 +1,112 @@
+package com.company.Courseart;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.IOException;
+
+class Seasons extends JFrame implements WindowListener
+{
+
+
+
+    JButton k1 = new JButton("Весна");
+    JButton k2 = new JButton("Лето");
+    JButton k3 = new JButton("Осень");
+    JButton k4 = new JButton("Зима");
+
+
+
+    private class btListener implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e) {
+             if(e.getActionCommand().equals("Х"))
+            {
+                setVisible(false);
+            }
+             else if(e.getActionCommand().equals("Лето"))
+             {
+                 new Summer();
+             }
+            else if(e.getActionCommand().equals("Весна"))
+            {
+                new Spring();
+            }
+            else if(e.getActionCommand().equals("Осень"))
+            {
+                new Autumn();
+            }
+            else if(e.getActionCommand().equals("Зима"))
+            {
+                new Winter();
+            }
+        }
+    }
+
+    public Seasons()
+    {
+        this.setTitle("Времена года");
+        this.setSize(715, 535);
+        this.setLayout(new FlowLayout());
+        this.setContentPane(new contentPanel());
+        k1.addActionListener(new btListener());
+        k2.addActionListener(new btListener());
+        k3.addActionListener(new btListener());
+        k4.addActionListener(new btListener());
+        this.add(k1);
+        this.add(k2);
+        this.add(k3);
+        this.add(k4);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setLocationRelativeTo(null);
+    }
+
+
+
+
+    public void windowOpened(WindowEvent e) {
+    }
+
+    public void windowClosing(WindowEvent e) {
+        setVisible(true);
+    }
+    public void windowClosed(WindowEvent e) {
+    }
+    public void windowIconified(WindowEvent e) {
+    }
+    public void windowDeiconified(WindowEvent e) {
+    }
+    public void windowActivated(WindowEvent e) {
+    }
+    public void windowDeactivated(WindowEvent e) {
+    }
+
+
+    public static void main(String[] args) {
+        Seasons f1 = new Seasons();
+        f1.setVisible(true);
+    }
+
+
+}
+
+  class contentPanel extends JPanel {
+
+    protected void paintComponent(Graphics g) {
+        Graphics2D g2 = (Graphics2D) g;
+        Image seasons = null;
+        try {
+            seasons = ImageIO.read(getClass().getResource("seasons.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        g2.drawImage(seasons, 0, 0, this);
+    }
+
+
+  }
