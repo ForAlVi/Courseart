@@ -15,6 +15,20 @@ class Winter extends JFrame
         this.setContentPane(new set());
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setVisible(true);
+        String[] texts = {"Сосульки в средних широтах вырастают самыми крупными с южной стороны дома.",
+                "Крупнейшая снежинка, что когда-либо попадала в руки человека, имела 38 сантиметров в диаметре.",
+                "Зимой устанавливаются рекорды самых низких температур. Так, холоднее всего на Земле было 8 декабря 2013 года — в Антарктиде на японской станции зафиксировали температуру в -91,2 ºС.",
+                "Зимой Северное полушарие планеты максимально приближается к Солнцу.",
+                "В зависимости от вида снега количество воды в нем значительно разнится. В среднем из слоя 10-15 мм получается 1 мм воды."};
+        Random random = new Random();
+        for (int i = 0; i < 1; i++) {
+            int pos = random.nextInt(texts.length);
+            if (i % 10 == 0) {
+                System.out.print(texts[pos] + "\n");
+            } else {
+                System.out.print(texts[pos] + " ");
+            }
+        }
     }
 }
 class set extends JPanel {
